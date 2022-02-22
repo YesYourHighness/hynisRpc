@@ -1,8 +1,17 @@
 package com.hynis.rpc.server;
 
 /**
- * @author 董文浩
- * @date 2022/2/21 22:11
+ * @author hynis
+ * @date 2022/2/22 21:09
  */
-public class Server {
+public abstract class Server {
+    /**
+     * 启动Server
+     */
+    public abstract void start();
+
+    /**
+     * 停止Server
+     */
+    public abstract void stop();
 }
