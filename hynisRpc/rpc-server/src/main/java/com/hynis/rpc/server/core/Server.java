@@ -1,4 +1,4 @@
-package com.hynis.rpc.server;
+package com.hynis.rpc.server.core;
 
 /**
  * @author hynis
