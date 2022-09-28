@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
  */
 // 运行时依旧存在，这样才能在运行时被反射获取到
 @Retention(RetentionPolicy.RUNTIME)
-// 设置标记的类型
+// 设置标记的类型：TYPE可以标记类（包括枚举）、接口（包括注解）
 @Target(ElementType.TYPE)
 public @interface RpcService {
 }

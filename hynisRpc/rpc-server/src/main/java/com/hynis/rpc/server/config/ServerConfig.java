@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * @author hynis
  * @date 2022/2/24 0:22
+ * 服务端配置类
  */
 @Configuration
 public class ServerConfig {

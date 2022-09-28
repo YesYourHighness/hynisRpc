@@ -12,6 +12,12 @@ public class RpcService {
      * 服务名
      */
     private String serviceName;
+    /**
+     * 组织
+     */
     private String group;
+    /**
+     * 版本号
+     */
     private String version;
 }
