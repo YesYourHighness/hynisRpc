@@ -1,12 +1,11 @@
 package com.hynis.rpc.common.codec;
 
 import com.hynis.rpc.common.entity.RpcMsg;
-import com.hynis.rpc.common.serialize.protostuff.ProtostuffUtils;
+import com.hynis.rpc.common.serialize.Serializer;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * @author hynis
@@ -16,8 +15,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Slf4j
 public class RpcMsgEncoder extends MessageToByteEncoder<RpcMsg> {
 
-    @Autowired
-    ProtostuffUtils protostuffUtils;
+    /**
+     * 要序列化的类型
+     */
+    private Class<?> genericClass;
+    /**
+     * 序列化接口：便于扩展序列化工具
+     */
+    private Serializer serializer;
 
     /**
      * 将RpcMsg进行编码处理：将RpcMsg转换为容易传输的形式
@@ -27,11 +32,18 @@ public class RpcMsgEncoder extends MessageToByteEncoder<RpcMsg> {
      * @throws Exception
      */
     @Override
-    protected void encode(ChannelHandlerContext ctx, RpcMsg msg, ByteBuf out) throws Exception {
+    protected void encode(ChannelHandlerContext ctx, RpcMsg msg, ByteBuf out) {
+        if(!genericClass.isInstance(msg)){
+            log.info("the msg is not the class you want.");
+            return;
+        }
         log.info("the msg [{}] is encoding...", msg);
         Object data = msg.getData();
-        byte[] serializedData = protostuffUtils.serialize(data);
-        out.writeBytes(serializedData);
+        try {
+            byte[] serializedData = serializer.serialize(data);
+            out.writeBytes(serializedData);
+        }catch (Exception e){
+            log.info("hynisRpc serialize the msg meets a problem={}", e.getMessage());
+        }
     }
-
 }

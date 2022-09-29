@@ -1,13 +1,10 @@
 package com.hynis.rpc.common.codec;
 
-import com.hynis.rpc.common.entity.RpcMsg;
 import com.hynis.rpc.common.serialize.Serializer;
-import com.hynis.rpc.common.serialize.protostuff.ProtostuffUtils;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
@@ -41,7 +38,7 @@ public class RpcMsgDecoder extends ByteToMessageDecoder {
      */
     @Override
     protected void decode(ChannelHandlerContext channelHandlerContext,
-                          ByteBuf byteBuf, List<Object> list) throws Exception {
+                          ByteBuf byteBuf, List<Object> list) {
         // 当可读取字节至少为4，才去读取（如果逻辑复杂可以直接继承类ReplayingDecoder）
         if (byteBuf.readableBytes() < 4) {
             return;
@@ -67,7 +64,7 @@ public class RpcMsgDecoder extends ByteToMessageDecoder {
             list.add(obj);
         } catch (Exception e) {
             // 说明反序列化遇到问题
-            log.info("hynisRpc deserialize has a problem={}", e.getMessage());
+            log.info("hynisRpc deserialize the msg meets a problem={}", e.getMessage());
         }
     }
 }
