@@ -13,6 +13,10 @@
     <properties>
         <spring.version>5.2.6.RELEASE</spring.version>
         <netty.version>4.1.42.Final</netty.version>
+        <curator.version>2.13.0</curator.version>
+        <jackson.version>2.14.0</jackson.version>
+        <protostuff.version>1.7.2</protostuff.version>
+        <apachecollections4.version>4.1</apachecollections4.version>
     </properties>
 
     <modules>
@@ -64,7 +68,65 @@
             <artifactId>lombok</artifactId>
             <version>1.18.22</version>
         </dependency>
-    </dependencies>
 
+        <!-- curator -->
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-framework</artifactId>
+            <version>${curator.version}</version>
+        </dependency>
+        <!-- curator recipes -->
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-recipes</artifactId>
+            <version>${curator.version}</version>
+        </dependency>
+
+        <!-- jackson -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <!-- 序列化工具-protostuff -->
+        <dependency>
+            <groupId>io.protostuff</groupId>
+            <artifactId>protostuff-core</artifactId>
+            <version>${protostuff.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.protostuff</groupId>
+            <artifactId>protostuff-runtime</artifactId>
+            <version>${protostuff.version}</version>
+        </dependency>
+
+        <!-- Apache Commons Collections 使用了hashedMap -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>${apachecollections4.version}</version>
+        </dependency>
+
+
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <source>1.8</source>  <!--language level-->
+                    <target>1.8</target>  <!--java compiler version-->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

@@ -7,7 +7,6 @@ import com.hynis.rpc.server.core.Server;
  */
 public class ServerStart {
     public static void main(String[] args) {
-        Server server = new RpcNettyServer();
-        server.start();
+
     }
 }
