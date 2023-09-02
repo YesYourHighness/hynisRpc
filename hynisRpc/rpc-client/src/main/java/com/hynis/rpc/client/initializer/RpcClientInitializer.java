@@ -30,8 +30,8 @@ public class RpcClientInitializer extends ChannelInitializer<SocketChannel> {
 
         // 入站处理器
         cp.addLast(new IdleStateHandler(0, 0, Beat.BEAT_INTERVAL, TimeUnit.SECONDS));
-        cp.addLast(new RpcMsgEncoder(RpcRequest.class, serializer));
         cp.addLast(new LengthFieldBasedFrameDecoder(65536, 0, 4, 0, 0));
+        cp.addLast(new RpcMsgEncoder(RpcRequest.class, serializer));
         cp.addLast(new RpcClientHandler());
         // 出站处理器
         cp.addLast(new RpcMsgDecoder(RpcResponse.class, serializer));

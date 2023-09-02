@@ -10,6 +10,8 @@ import java.lang.annotation.Target;
 /**
  * @author hynis
  * @date 2022/2/23 23:50
+ *
+ *
  */
 
 @Retention(RetentionPolicy.RUNTIME)// 运行时依旧存在，这样才能在运行时被反射获取到

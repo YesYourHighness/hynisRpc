@@ -37,7 +37,7 @@ public class RpcLoadBalanceRoundRobin extends RpcLoadBalance {
     }
 
     /**
-     * 从给定的服务器节点列表中选择一个节点：循环选取
+     * 从给定的服务器节点列表中选择一个节点：哈希取余选取
      * @param addressList
      * @return
      */

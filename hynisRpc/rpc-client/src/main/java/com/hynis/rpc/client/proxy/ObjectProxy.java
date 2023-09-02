@@ -7,7 +7,6 @@ import com.hynis.rpc.common.entity.RpcRequest;
 import com.hynis.rpc.common.util.ServiceUtil;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.annotation.Resource;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.util.UUID;

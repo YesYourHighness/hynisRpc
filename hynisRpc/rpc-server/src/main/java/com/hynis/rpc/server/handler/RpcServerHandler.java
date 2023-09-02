@@ -1,4 +1,4 @@
-package com.hynis.rpc.server.call;
+package com.hynis.rpc.server.handler;
 
 import com.hynis.rpc.common.entity.RpcRequest;
 import com.hynis.rpc.common.entity.RpcResponse;

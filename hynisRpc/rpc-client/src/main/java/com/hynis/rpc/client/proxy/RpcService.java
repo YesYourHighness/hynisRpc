@@ -5,6 +5,9 @@ import com.hynis.rpc.client.handler.RpcFuture;
 /**
  * @author hynis
  * @date 2023/8/21 17:12
+ *
+ *
+ * 为了使用JDK动态代理，必须要求代理类实现
  */
 public interface RpcService<T, P, FN extends SerializableFunction<T>> {
 

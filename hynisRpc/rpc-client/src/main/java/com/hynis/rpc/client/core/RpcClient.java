@@ -11,8 +11,6 @@ import org.springframework.beans.factory.DisposableBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
-import javax.annotation.Resource;
-import java.lang.reflect.Field;
 import java.lang.reflect.Proxy;
 import java.util.concurrent.ThreadPoolExecutor;
 

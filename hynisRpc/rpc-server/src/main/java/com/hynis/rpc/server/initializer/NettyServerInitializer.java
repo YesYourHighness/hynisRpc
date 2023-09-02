@@ -7,7 +7,7 @@ import com.hynis.rpc.common.entity.RpcResponse;
 import com.hynis.rpc.common.serializer.Serializer;
 import com.hynis.rpc.common.serializer.protostuff.ProtostuffSerializer;
 import com.hynis.rpc.common.config.Beat;
-import com.hynis.rpc.server.call.RpcServerHandler;
+import com.hynis.rpc.server.handler.RpcServerHandler;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
